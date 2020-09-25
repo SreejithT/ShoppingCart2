@@ -1,0 +1,38 @@
+<!-- <p>cart works!</p> -->
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price (INR/Kg)</th>
+        <th scope="col">ID</th>
+        <th scope="col">Image</th>
+        <th scope="col">Quantity(Kg)</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    
+     <tbody>
+      <tr *ngFor="let data of details">
+        <th scope="row">{{data.Name}}</th>
+        <td>{{data.Price}}</td>
+        <td>{{data.Id}}</td>
+        <td><img src="{{data.path}}" alt=""></td>
+        <td>
+          <button (click)="decrease(product)">-</button>
+            {{data.Quantity}}
+            <button (click)="increase(product)">+</button>
+            
+        </td>
+       
+        <td>
+          <button (click)="cart(product)">Remove</button>
+      </td>
+       
+      </tr>
+      <th scope="row">Total Cost: {{tc}}</th>
+    </tbody>
+  </table> 
+  
+  

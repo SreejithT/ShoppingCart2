@@ -1,0 +1,32 @@
+<!-- <p>data works!</p> -->
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price (INR/Kg)</th>
+        <th scope="col">ID</th>
+        <th scope="col">Image</th>
+        <th scope="col">Quantity(Kg)</th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productlist">
+        <th scope="row">{{product.Name}}</th>
+        <td>{{product.Price}}</td>
+        <td>{{product.Id}}</td>
+        <td><img src="{{product.path}}" alt=""></td>
+        <td>
+            <button (click)="decrease(product)">-</button>
+            {{product.Quantity}}
+            <button (click)="increase(product)">+</button>
+        </td>
+        <td>
+            <button (click)="cart(product)">Add To Cart</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  

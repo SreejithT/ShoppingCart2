@@ -1,0 +1,45 @@
+[
+    {
+        "Name":"Apple",
+        "Price":180 ,
+        "Id":"FR101",
+        "path":"../../assets/images/apple.png",
+        "Quantity":0
+
+    },
+    {
+        "Name":"Orange",
+        "Price":60 ,
+        "Id":"FR102",
+        "path":"../../assets/images/orange.jpg",
+        "Quantity":0
+
+    },
+    {
+        "Name":"Mango",
+        "Price":90 ,
+        "Id":"FR103",
+        "path":"../../assets/images/mango.jpg",
+        "Quantity":0
+
+    },
+    {
+        "Name":"Pineapple",
+        "Price":26 ,
+        "Id":"FR104",
+        "path":"../../assets/images/pineapple.jpg",
+        "Quantity":0
+
+    },
+   
+    {
+        "Name":"Grapes",
+        "Price":70 ,
+        "Id":"FR105",
+        "path":"../../assets/images/grapes.jpg",
+        "Quantity":0
+
+    }
+    
+    
+]

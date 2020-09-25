@@ -1,0 +1,105 @@
+<form action="" [formGroup]="registrationForm" (ngSubmit)="register()">
+    <div class="form-group">
+        <label for="">Name</label>
+    </div>
+    <div>
+        <input type="text" class="form-control" formControlName="name">
+        <div *ngIf="submitted && f.name.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.name.errors.required">
+                Name is required
+
+            </div>
+            <div *ngIf="f.name.errors.pattern">
+                Only alphabets
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Email</label>
+    </div>
+    <div>
+        <input type="email" class="form-control" formControlName="email">
+        <div *ngIf="submitted && f.email.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.email.errors.required">
+                Email is required
+
+            </div>
+            <div *ngIf="f.email.errors.pattern">
+                Wrong Format
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Password</label>
+    </div>
+    <div>
+        <input type="password" class="form-control" formControlName="password">
+        <div *ngIf="submitted && f.password.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.password.errors.required">
+                Password is required
+
+            </div>
+            <div *ngIf="f.password.errors.pattern">
+                Weak Password
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Date Of Birth</label>
+    </div>
+    <div>
+        <input type="date" class="form-control" formControlName="dob">
+        <div *ngIf="submitted && f.dob.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.dob.errors.required">
+                Date of Birth is required
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Phone No:</label>
+    </div>
+    <div>
+        <input type="number" class="form-control" formControlName="phone">
+        <div *ngIf="submitted && f.phone.errors" class="alert alert-danger" role="alert">
+            <div *ngIf="f.phone.errors.required">
+                Phone number is required
+
+            </div>
+            <div *ngIf="f.phone.errors.pattern">
+                Requires 10 digits
+            </div>
+        </div>
+    </div>
+    
+    
+    <button >Save</button>
+    <button (click)="reset()">Reset</button>
+</form>
+<pre></pre>
+<table>
+    <thead class="table" >
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>DOB</th>
+        <th>Phone No:</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tr *ngFor="let user of userlist">
+        <td>{{user.did}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.dob}}</td>
+        <td>{{user.phone}}</td>
+        <td><button (click)="edit(user)">Edit</button></td>
+        <td><button>Delete</button></td>
+
+    </tr>
+</table>
+
+
+
