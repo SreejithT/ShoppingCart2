@@ -3,8 +3,8 @@
         <label for="">Email</label>
     </div>
     <div>
-        <input type="email" class="form-control" #pid="ngModel" [(ngModel)]="model.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required  >
-        <div *ngIf="pid.invalid && (pid.dirty || pid.touched)"  class="alert alert-danger">
+        <input type="email" class="form-control" #pemail="ngModel" [(ngModel)]="model.email" name="email"  required  >
+        <div *ngIf="pemail.invalid && (pemail.dirty || pemail.touched)"  class="alert alert-danger">
             Email is required/Incorrect
 
         </div>
@@ -13,8 +13,8 @@
         <label for="">Password</label>
     </div>
     <div>
-        <input type="password" class="form-control" #pname="ngModel" [(ngModel)]="model.password" name="password" required>
-        <div *ngIf="pname.invalid && (pname.dirty || pname.touched)"  class="alert alert-danger">
+        <input type="password" class="form-control" #ppass="ngModel" [(ngModel)]="model.password" name="password" required>
+        <div *ngIf="ppass.invalid && (ppass.dirty || ppass.touched)"  class="alert alert-danger">
             Password is required/Incorrect
 
         </div>
@@ -24,9 +24,43 @@
     
    
     <div>
-    <button class="btn-primary" [disabled]="myform.invalid" (click)="login()">Login</button> 
-     <button class="btn-primary"  (click)="info()">View</button>
+    <button class="btn-primary" [disabled]="myform.invalid" (click)="login()" >Login</button> 
+     <!-- <button class="btn-primary"  (click)="info()">View</button> -->
 </div>
+
+
     
 </form>
+<pre></pre>
+
+<div >
+    <h2>{{status}}</h2>
+    
+
+</div>
+<pre></pre>
+
+
+
+<table>
+    <thead class="table table-bordered " >
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>DOB</th>
+        <th>Phone No:</th>
+        
+    </thead>
+    <tr *ngFor="let user of userlist2" class="table table-bordered ">
+        <td>{{user.did2}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.dob}}</td>
+        <td>{{user.phone}}</td>
+        
+
+    </tr>
+</table>
 

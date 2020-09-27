@@ -20,19 +20,21 @@
         <td>{{data.Id}}</td>
         <td><img src="{{data.path}}" alt=""></td>
         <td>
-          <button (click)="decrease(product)">-</button>
+          <button (click)="decrease2(data)">-</button>
             {{data.Quantity}}
-            <button (click)="increase(product)">+</button>
+            <button (click)="increase2(data)">+</button>
             
         </td>
        
         <td>
-          <button (click)="cart(product)">Remove</button>
+          <button (click)="remove2(data)">Remove</button>
       </td>
        
       </tr>
+      <th><button (click)="cost()">Total Cost</button></th>
       <th scope="row">Total Cost: {{tc}}</th>
     </tbody>
   </table> 
+  
   
   

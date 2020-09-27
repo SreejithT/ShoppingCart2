@@ -48,12 +48,16 @@ export class DataComponent implements OnInit {
       if (this.tocart[i].Id==product2.Id){
         this.tocart[i].Quantity=product2.Quantity
         repeat=true
+        if(product2.Quantity==0){
+          this.tocart.splice(i,1)
+          
+        }
       }}
 
     if (repeat==false && product2.Quantity!=0){
     // console.log(product2)
     this.tocart.push(product2)
-    console.log(this.tocart)
+    // console.log(this.tocart)
     }
     this.service2.getData(this.tocart)
     

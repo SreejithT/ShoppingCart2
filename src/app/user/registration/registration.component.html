@@ -1,4 +1,9 @@
 <form action="" [formGroup]="registrationForm" (ngSubmit)="register()">
+    <!-- <div >
+        <input type="text" class="form-control" formControlName="did">
+        </div>
+     -->
+    
     <div class="form-group">
         <label for="">Name</label>
     </div>
@@ -73,12 +78,14 @@
     </div>
     
     
+    
     <button >Save</button>
     <button (click)="reset()">Reset</button>
+    <!-- <button (click)="update()">Update</button> -->
 </form>
 <pre></pre>
 <table>
-    <thead class="table" >
+    <thead class="table table-bordered " >
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
@@ -88,15 +95,16 @@
         <th></th>
         <th></th>
     </thead>
-    <tr *ngFor="let user of userlist">
-        <td>{{user.did}}</td>
+    <tr *ngFor="let user of userlist" class="table table-bordered ">
+        <td>{{user.did2}}</td>
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
         <td>{{user.password}}</td>
         <td>{{user.dob}}</td>
         <td>{{user.phone}}</td>
         <td><button (click)="edit(user)">Edit</button></td>
-        <td><button>Delete</button></td>
+        <!-- <td><button (click)="update()">Update</button></td> -->
+        <td><button (click)="delete(user)">Delete</button></td>
 
     </tr>
 </table>

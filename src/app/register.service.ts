@@ -22,6 +22,9 @@ export class RegisterService {
   updateUser(user){
     this.obj.doc("userdata/"+user.did).update({...user})
   } 
+  deleteUser(user){
+    this.obj.doc("userdata/"+user.did2).delete()
+  }
 
 
 

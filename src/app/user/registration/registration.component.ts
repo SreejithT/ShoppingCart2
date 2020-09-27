@@ -24,7 +24,7 @@ export class RegistrationComponent implements OnInit {
       // console.log("Data received is ...",data)
       this.userlist=data.map((doc)=>{
         return{
-          did:doc.payload.doc.id,
+          did2:doc.payload.doc.id,
           ...doc.payload.doc.data() as {}
         } as Temp
       })
@@ -42,10 +42,10 @@ export class RegistrationComponent implements OnInit {
   
   
   registrationForm= new FormGroup({
-    // did: new FormControl, 
+    did: new FormControl,
     name : new FormControl("",[Validators.required,Validators.pattern("[a-zA-z]+")]),
     email : new FormControl("",[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
-    password : new FormControl("",[Validators.required,Validators.pattern("[a-z]+[A-Z]+[0-9]+\\W+$")]), //Validators.pattern("[a-z]+[A-Z]+[0-9]+\W+")
+    password : new FormControl("",[Validators.required,Validators.pattern("[a-z]+[A-Z]+[0-9]+\\W+$")]), //eg:aA0@
     dob : new FormControl("",[Validators.required]),
     phone : new FormControl("",[Validators.required,Validators.pattern("[0-9]{10}")]),
   })   
@@ -67,7 +67,7 @@ export class RegistrationComponent implements OnInit {
   }
   else{
     if(this.registrationForm.value.did==null){
-          // console.log(this.registrationForm.value)
+          // console.log(this.registrationForm.value.did)
     this.reg.saveUser(this.registrationForm.value)
         
     }
@@ -77,11 +77,27 @@ export class RegistrationComponent implements OnInit {
 
 
 
-  }
+  }}
   
-  }
+
+  
+  
+  
+  // update(){
+    
+  //   this.reg.updateUser(this.registrationForm.value)
+  // }
+
+
   edit(user){
-    this.registrationForm.setValue(user)     
+    
+    this.registrationForm.patchValue({did:user.did2})
+    this.registrationForm.patchValue({name:user.name})
+    this.registrationForm.patchValue({email:user.email})
+    this.registrationForm.patchValue({password:user.password})
+    this.registrationForm.patchValue({dob:user.dob})  
+    this.registrationForm.patchValue({phone:user.phone})
+    // this.registrationForm.setValue(user)
     
   }
 
@@ -89,6 +105,11 @@ export class RegistrationComponent implements OnInit {
     this.submitted=false
     this.registrationForm.reset()
   
+  }
+
+  delete(user){
+    this.reg.deleteUser(user)
+
   }
 
   get f(){
