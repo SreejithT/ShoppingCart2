@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import {Temp} from '../../temp'
 import {RegisterService} from '../../register.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,14 @@ export class LoginComponent implements OnInit {
   model=new Temp()
   userlist2:Temp[]
   logininfo=[]
+  returnURL:string=""
   status=""
   
 
-  constructor(private reg:RegisterService) { }
+  constructor(private reg:RegisterService,private router:Router) { }
 
   ngOnInit(): void {
+    this.returnURL="/dashboard"
     this.reg.readUser().subscribe(data=>{
       // console.log("Data received is ...",data)
       this.userlist2=data.map((doc)=>{
@@ -40,8 +43,12 @@ export class LoginComponent implements OnInit {
     for (let i=0;i<this.userlist2.length;i++){
       if(this.model.email==this.userlist2[i].email){
         if(this.model.password==this.userlist2[i].password){
+          localStorage.setItem("isLoggedIn","true")
+          localStorage.setItem("username",this.model.email)
+          this.router.navigate([this.returnURL])
           console.log("Login Successful")
           this.status="Login Successful"
+          
           break;
         }
         else{

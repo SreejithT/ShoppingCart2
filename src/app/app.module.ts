@@ -11,13 +11,16 @@ import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import {AngularFireModule} from '@angular/fire'
 import {AngularFireDatabaseModule} from '@angular/fire/database'
-import {environment} from '../environments/environment'
+import {environment} from '../environments/environment';
+import { UserhomeComponent } from './userhome/userhome.component'
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataComponent,
-    CartComponent
+    CartComponent,
+    UserhomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import {environment} from '../environments/environment'
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

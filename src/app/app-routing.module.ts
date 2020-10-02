@@ -5,9 +5,13 @@ import { CartComponent } from './cart/cart.component';
 import { DataComponent } from './data/data.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegistrationComponent } from './user/registration/registration.component';
+import { UserhomeComponent } from './userhome/userhome.component';
+import {AuthGuardService} from './auth-guard.service'
 
 
 const routes: Routes = [
+
+  
   {
     path:"browse",
     component:DataComponent
@@ -23,6 +27,12 @@ const routes: Routes = [
   {
     path:"login",
     component:LoginComponent
+    
+  },
+  {
+    path:"dashboard",
+    component:UserhomeComponent,
+    canActivate:[AuthGuardService]
   }
 ];
 
